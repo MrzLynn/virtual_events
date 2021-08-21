@@ -90,4 +90,16 @@ public class Event extends AbstractEntity {
     public void setCategory(Category category) {
         this.category = category;
     }
+
+    @Override
+    public String toString() {
+        return "Event{" +
+                "name='" + name + '\'' +
+                ", date=" + date +
+                ", attending=" + attending +
+                ", start=" + start +
+                ", end=" + end +
+                ", category=" + category +
+                '}';
+    }
 }

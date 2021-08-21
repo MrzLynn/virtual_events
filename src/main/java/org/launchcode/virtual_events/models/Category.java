@@ -1,24 +1,31 @@
 package org.launchcode.virtual_events.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 
 @Entity
 public class Category extends AbstractEntity {
-
+    @Size(min = 3, message = "Name must be at least 3 characters long.")
     private String name;
-    private Date date;
-    private String type;
-    private String notes;
-    private Event event;
 
-    public Category(String name, Date date, String type, String notes, Event event) {
+    @NotNull
+    private Date date;
+
+    @NotNull
+    private String type;
+
+    private String notes;
+
+
+    public Category(String name, Date date, String type, String notes) {
         this.name = name;
         this.date = date;
         this.type = type;
         this.notes = notes;
-        this.event = event;
+
     }
 
     public Category() {
@@ -56,14 +63,6 @@ public class Category extends AbstractEntity {
         this.notes = notes;
     }
 
-    @ManyToOne
-    public Event getEvent() {
-        return event;
-    }
-
-    public void setEvent(Event event) {
-        this.event = event;
-    }
 
     @Override
     public String toString() {
