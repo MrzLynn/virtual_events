@@ -1,21 +1,19 @@
-package org.launchcode.virtual_events.domain;
+package org.launchcode.virtual_events.models;
 
 import javax.persistence.*;
-import java.util.Set;
-import java.util.TreeSet;
 
 @Entity
-@Table(name = "users")
+
 public class User extends AbstractEntity {
 
     private String username;
     private String password;
-    private Set<Type> groups = new TreeSet<>();
 
-    public User(String username, String password, Set<Type> groups) {
+
+    public User(String username, String password) {
         this.username = username;
         this.password = password;
-        this.groups = groups;
+
     }
 
     public String getUsername() {
@@ -33,12 +31,5 @@ public class User extends AbstractEntity {
     public void setPassword(String password) {
         this.password = password;
     }
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
-    public Set<Type> getGroups() {
-        return groups;
-    }
 
-    public void setGroups(Set<Type> groups) {
-        this.groups = groups;
-    }
 }

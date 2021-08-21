@@ -1,4 +1,4 @@
-package org.launchcode.virtual_events.domain;
+package org.launchcode.virtual_events.models;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;

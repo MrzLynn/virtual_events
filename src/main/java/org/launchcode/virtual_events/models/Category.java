@@ -1,27 +1,27 @@
-package org.launchcode.virtual_events.domain;
+package org.launchcode.virtual_events.models;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.util.Date;
 
+
 @Entity
-public class Event extends AbstractEntity {
+public class Category extends AbstractEntity {
 
     private String name;
     private Date date;
     private String type;
     private String notes;
-    private Category category;
+    private Event event;
 
-    public Event(String name, Date date, String type, String notes, Category category) {
+    public Category(String name, Date date, String type, String notes, Event event) {
         this.name = name;
         this.date = date;
         this.type = type;
         this.notes = notes;
-        this.category = category;
+        this.event = event;
     }
 
-    public Event() {
+    public Category() {
     }
 
     public String getName() {
@@ -55,12 +55,21 @@ public class Event extends AbstractEntity {
     public void setNotes(String notes) {
         this.notes = notes;
     }
+
     @ManyToOne
-    public Category getCategory() {
-        return category;
+    public Event getEvent() {
+        return event;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
+    public void setEvent(Event event) {
+        this.event = event;
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
+
+
 }
+

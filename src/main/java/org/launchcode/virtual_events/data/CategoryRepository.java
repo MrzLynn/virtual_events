@@ -1,0 +1,10 @@
+package org.launchcode.virtual_events.data;
+
+
+import org.launchcode.virtual_events.models.Category;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface CategoryRepository extends CrudRepository<Category, Integer> {
+}
