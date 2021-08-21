@@ -1,6 +1,8 @@
 package org.launchcode.virtual_events.controllers;
 
 import org.launchcode.virtual_events.data.UserRepository;
+import org.launchcode.virtual_events.models.LoginFormDTO;
+import org.launchcode.virtual_events.models.RegisterFormDTO;
 import org.launchcode.virtual_events.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
