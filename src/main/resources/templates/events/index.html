@@ -5,26 +5,19 @@
 
 <header th:replace="fragments :: header"></header>
 <table>
-   <thead class="table table-striped">
-   <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Date</th>
-      <th>Attending</th>
-      <th>Start</th>
-      <th>End</th>
-      <th>Category</th>
+   <thead class="table table-bordered table-dark">
+
+
+   <tr th:each="event: ${events}">
+      <td th:field="${event.id}">Id</td>
+      <td th:field="${event.name}">Name</td>
+      <td th:field="${event.date}">Date</td>
+      <td th:field="${event.attending}">Attending</td>
+      <td th:field="${event.start}">Start Time</td>
+      <td th:field="${event.end}">End Time</td>
+      <td th:field="${event.category.name}">Event Category</td>
    </tr>
    </thead>
-   <tr th:each="event: ${events}">
-      <td th:text="${event.id}"></td>
-      <td th:text="${event.name}"></td>
-      <td th:text="${event.date}"></td>
-      <td th:text="${event.attending}"></td>
-      <td th:text="${event.start}"></td>
-      <td th:text="${event.end}"></td>
-      <td th:text="${event.category.name}"></td>
-   </tr>
 </table>
 
 </body>

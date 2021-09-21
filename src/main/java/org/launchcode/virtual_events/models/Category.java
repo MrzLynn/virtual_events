@@ -21,6 +21,7 @@ public class Category extends AbstractEntity {
 
 
     public Category(String name, Date date, String type, String notes) {
+        super();
         this.name = name;
         this.date = date;
         this.type = type;

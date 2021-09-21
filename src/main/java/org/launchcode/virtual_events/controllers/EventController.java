@@ -3,16 +3,17 @@ package org.launchcode.virtual_events.controllers;
 import org.launchcode.virtual_events.data.CategoryRepository;
 import org.launchcode.virtual_events.data.EventRepository;
 import org.launchcode.virtual_events.models.Event;
+import org.launchcode.virtual_events.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("events")
@@ -31,21 +32,30 @@ public class EventController {
         model.addAttribute("title","All Events");
         model.addAttribute("events", events);
         model.addAttribute("events",eventRepository.findAll());
-        return "events/index";
+        return "create";
     }
 
     @GetMapping("create")
     public String displayCreateEventForm(Model model) {
         model.addAttribute("title", "Virtual Event");
         model.addAttribute(new Event());
-        model.addAttribute("categories", categoryRepository.findAll());
+        model.addAttribute("events", eventRepository.findAll());
         return "events/create";
     }
 
+
+
     @PostMapping("create")
-    public String processCreateEventForm(@RequestParam String eventName) {
-        events.add(eventName);
-        return "redirect:";
+    public String processAddEvent(@ModelAttribute @Valid Event newEvent,
+                                         Errors errors, Model model) {
+
+        if (errors.hasErrors()) {
+            return "events/create";
+        }
+        Optional<User> newEvent = userRepository;
+        model.addAttribute(new Event());
+        model.addAttribute(eventRepository.save(newEvent));
+        return "events/create";
     }
 
 

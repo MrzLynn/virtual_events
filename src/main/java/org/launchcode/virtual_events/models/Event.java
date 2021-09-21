@@ -1,7 +1,7 @@
 package org.launchcode.virtual_events.models;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.sql.Time;
@@ -18,7 +18,6 @@ public class Event extends AbstractEntity {
     private Date date;
 
     @NotNull(message = "Attending guests is required")
-    @Size(max = 250, message = "Attending limit is 250 guests")
     private Integer attending;
 
     @NotNull(message = "Start time is required")
@@ -31,13 +30,16 @@ public class Event extends AbstractEntity {
     @NotNull(message = "Category is required")
     private Category category;
 
+
     public Event(String name, Date date, Integer attending, Time start, Time end, Category category) {
+        super();
         this.name = name;
         this.date = date;
         this.attending = attending;
         this.start = start;
         this.end = end;
         this.category = category;
+
     }
 
     public Event() {
@@ -91,15 +93,9 @@ public class Event extends AbstractEntity {
         this.category = category;
     }
 
+
     @Override
     public String toString() {
-        return "Event{" +
-                "name='" + name + '\'' +
-                ", date=" + date +
-                ", attending=" + attending +
-                ", start=" + start +
-                ", end=" + end +
-                ", category=" + category +
-                '}';
+        return "Event{}";
     }
 }

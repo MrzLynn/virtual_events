@@ -2,17 +2,27 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 
 <body>
-
-
-
 <form method="post">
-   <input type="text" name="eventName">EventName</input>
-   <input type="text" name="Date">Date</input>
-   <input type="text" name="StartTime">StartTime</input>
-   <input type="text" name="EndTime">EndTime</input>
-   <input type="text" name="Attending">Attending</input>
+   <input type="text" th:field="${event.name}">Event Name</input>
+   <input type="text" th:field="${event.date}">Date</input>
+   <input type="text" th:field="${event.start}">Start Time</input>
+   <input type="text" th:field="${event.end}">EndTime</input>
+   <input type="text" th:field="${event.attending}">Attending</input>
+   <input type="text" th:field="${event.category.name}">Event Type</input>
    <input type="submit" value="CreateEvent">
 </form>
-
+<table>
+   <thead class="table table-bordered table-dark">
+   <tr th:each="event: ${events}">
+      <td th:text="${event.id}">Id</td>
+      <td th:text="${event.name}">Name</td>
+      <td th:text="${event.date}">Date</td>
+      <td th:text="${event.attending}">Attending</td>
+      <td th:text="${event.start}">Start Time</td>
+      <td th:text="${event.end}">End Time</td>
+      <td th:text="${event.category.name}">Event Category</td>
+   </tr>
+   </thead>
+</table>
 </body>
 </html>
