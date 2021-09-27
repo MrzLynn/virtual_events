@@ -58,8 +58,11 @@ public class EventController {
         }
         model.addAttribute(new Event());
         model.addAttribute(eventRepository.save(newEvent));
+        model.addAttribute("events",events);
         return "events/create";
     }
+
+
 
 
 }

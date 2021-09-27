@@ -1,2 +1,11 @@
-{
+.img-event {
+    width: 300px;
+    height: 200px;
+    background-image: url(img/Virtual-Parties.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+background {
+    color = pink;
 }

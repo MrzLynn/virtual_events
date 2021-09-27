@@ -4,9 +4,11 @@
    <title>Virtual Events</title>
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-</head>
-<body>
+   <link rel = "stylesheet" type = "text/css" th:href = "@{/css}"/>
+   <script th:src="@{/script.js}"></script>
 
+<body>
+<div class="img-event"></div>
 <nav th:fragment="header">
    <h1 th:text="${title}">Virtual Events</h1>
 
