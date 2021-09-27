@@ -2,6 +2,7 @@ package org.launchcode.virtual_events.controllers;
 
 import org.launchcode.virtual_events.data.CategoryRepository;
 import org.launchcode.virtual_events.data.EventRepository;
+import org.launchcode.virtual_events.data.UserRepository;
 import org.launchcode.virtual_events.models.Event;
 import org.launchcode.virtual_events.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,9 @@ public class EventController {
 
     @Autowired
     private CategoryRepository categoryRepository;
+
+    @Autowired
+    private UserRepository userRepository;
 
     @GetMapping
     public String displayAllEvents(Model model) {
@@ -52,7 +56,6 @@ public class EventController {
         if (errors.hasErrors()) {
             return "events/create";
         }
-        Optional<User> newEvent = userRepository;
         model.addAttribute(new Event());
         model.addAttribute(eventRepository.save(newEvent));
         return "events/create";

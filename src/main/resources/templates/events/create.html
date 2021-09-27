@@ -1,7 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="/css/font-awesome.min.css"/>
 <body>
+<div class="card">
+   <div class="card-header">
+      All Events
+   </div>
+
+   <div class="list-group list-group-flush" th:each="event:${events}">
+      <a href="#" class="list-group-item list-group-item-action" >Event Name</a>
+      <a href="#"  class="list-group-item list-group-item-action">A second item</a>
+      <a href="#"  class="list-group-item list-group-item-action">A third item</a>
+   </div>
+</div>
 <form method="post">
    <input type="text" th:field="${event.name}">Event Name</input>
    <input type="text" th:field="${event.date}">Date</input>
@@ -25,4 +39,5 @@
    </thead>
 </table>
 </body>
+
 </html>
