@@ -31,13 +31,13 @@ public class Event extends AbstractEntity {
     private Category category;
 
 
-    public Event(String name, Date date, Integer attending, Time start, Time end, Category category) {
+    public Event(String name, Category category) {
         super();
         this.name = name;
-        this.date = date;
-        this.attending = attending;
-        this.start = start;
-        this.end = end;
+//        this.date = date;
+//        this.attending = attending;
+//        this.start = start;
+//        this.end = end;
         this.category = category;
 
     }
@@ -53,37 +53,37 @@ public class Event extends AbstractEntity {
         this.name = name;
     }
 
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    public Integer getAttending() {
-        return attending;
-    }
-
-    public void setAttending(Integer attending) {
-        this.attending = attending;
-    }
-
-    public Time getStart() {
-        return start;
-    }
-
-    public void setStart(Time start) {
-        this.start = start;
-    }
-
-    public Time getEnd() {
-        return end;
-    }
-
-    public void setEnd(Time end) {
-        this.end = end;
-    }
+//    public Date getDate() {
+//        return date;
+//    }
+//
+//    public void setDate(Date date) {
+//        this.date = date;
+//    }
+//
+//    public Integer getAttending() {
+//        return attending;
+//    }
+//
+//    public void setAttending(Integer attending) {
+//        this.attending = attending;
+//    }
+//
+//    public Time getStart() {
+//        return start;
+//    }
+//
+//    public void setStart(Time start) {
+//        this.start = start;
+//    }
+//
+//    public Time getEnd() {
+//        return end;
+//    }
+//
+//    public void setEnd(Time end) {
+//        this.end = end;
+//    }
 
     public Category getCategory() {
         return category;
