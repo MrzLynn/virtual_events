@@ -14,17 +14,17 @@ public class Event extends AbstractEntity {
     @Size(min = 3, max = 50, message = "Name must be between 3 and 50 characters.")
     private String name;
 
-    @NotNull(message = "Date is required")
-    private Date date;
-
-    @NotNull(message = "Attending guests is required")
-    private Integer attending;
-
-    @NotNull(message = "Start time is required")
-    private Time start;
-
-    @NotNull(message = "End time is required")
-    private Time end;
+//    @NotNull(message = "Date is required")
+//    private Date date;
+//
+//    @NotNull(message = "Attending guests is required")
+//    private Integer attending;
+//
+//    @NotNull(message = "Start time is required")
+//    private Time start;
+//
+//    @NotNull(message = "End time is required")
+//    private Time end;
 
     @ManyToOne
     @NotNull(message = "Category is required")

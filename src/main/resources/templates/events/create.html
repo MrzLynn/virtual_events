@@ -18,11 +18,11 @@
 </div>
 <form method="post">
    <input type="text" th:field="${event.name}">Event Name</input>
-   <input type="text" th:field="${event.date}">Date</input>
-   <input type="text" th:field="${event.start}">Start Time</input>
-   <input type="text" th:field="${event.end}">EndTime</input>
-   <input type="text" th:field="${event.attending}">Attending</input>
-   <input type="text" th:field="${event.category.name}">Event Type</input>
+<!--   <input type="text" th:field="${event.date}">Date</input>-->
+<!--   <input type="text" th:field="${event.start}">Start Time</input>-->
+<!--   <input type="text" th:field="${event.end}">EndTime</input>-->
+<!--   <input type="text" th:field="${event.attending}">Attending</input>-->
+   <input type="text" th:field="${event.category.name}">Event Category</input>
    <input type="submit" value="CreateEvent">
 </form>
 <table>
@@ -30,10 +30,10 @@
    <tr th:each="event: ${events}">
       <td th:text="${event.id}">Id</td>
       <td th:text="${event.name}">Name</td>
-      <td th:text="${event.date}">Date</td>
-      <td th:text="${event.attending}">Attending</td>
-      <td th:text="${event.start}">Start Time</td>
-      <td th:text="${event.end}">End Time</td>
+<!--      <td th:text="${event.date}">Date</td>-->
+<!--      <td th:text="${event.attending}">Attending</td>-->
+<!--      <td th:text="${event.start}">Start Time</td>-->
+<!--      <td th:text="${event.end}">End Time</td>-->
       <td th:text="${event.category.name}">Event Category</td>
    </tr>
    </thead>
