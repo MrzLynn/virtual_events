@@ -20,8 +20,6 @@ import java.util.Optional;
 @RequestMapping("events")
 public class EventController {
 
-    private static List<String> events = new ArrayList<>();
-
     @Autowired
     private EventRepository eventRepository;
 
@@ -31,10 +29,10 @@ public class EventController {
     @Autowired
     private UserRepository userRepository;
 
-    @GetMapping
+    @RequestMapping
     public String displayAllEvents(Model model) {
         model.addAttribute("title","All Events");
-        model.addAttribute("events", events);
+
         model.addAttribute("events",eventRepository.findAll());
         return "create";
     }
@@ -56,13 +54,25 @@ public class EventController {
         if (errors.hasErrors()) {
             return "events/create";
         }
-        model.addAttribute(new Event());
+        newEvent.getName();
         model.addAttribute(eventRepository.save(newEvent));
-        model.addAttribute("events",events);
-        return "events/create";
+        return "redirect:/events/create";
+    }
+
+    @GetMapping("view")
+    public String displayViewEvents(Model model, @PathVariable int eventId) {
+        Optional optEvent = eventRepository.findById(eventId);
+        if (optEvent.isPresent()) {
+            Event event = (Event) optEvent.get();
+            model.addAttribute("event", event);
+            return "events/view";
+        } else {
+            return "redirect:";
+        }
+    }
     }
 
 
 
 
-}
+

@@ -5,7 +5,9 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.sql.Time;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Event extends AbstractEntity {
@@ -26,21 +28,24 @@ public class Event extends AbstractEntity {
 //    @NotNull(message = "End time is required")
 //    private Time end;
 
-    @ManyToOne
-    @NotNull(message = "Category is required")
-    private Category category;
+
+//    @NotNull
+//    private Category category;
 
 
-    public Event(String name, Category category) {
-        super();
-        this.name = name;
-//        this.date = date;
-//        this.attending = attending;
-//        this.start = start;
-//        this.end = end;
-        this.category = category;
 
-    }
+
+//    public Event(String name) {
+//        super();
+//        this.name = name;
+////        this.date = date;
+////        this.attending = attending;
+////        this.start = start;
+////        this.end = end;
+
+
+
+//    }
 
     public Event() {
     }
@@ -53,7 +58,7 @@ public class Event extends AbstractEntity {
         this.name = name;
     }
 
-//    public Date getDate() {
+   //    public Date getDate() {
 //        return date;
 //    }
 //
@@ -85,17 +90,11 @@ public class Event extends AbstractEntity {
 //        this.end = end;
 //    }
 
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
-
-
-    @Override
-    public String toString() {
-        return "Event{}";
-    }
+//    public Category getCategory() {
+//        return category;
+//    }
+//
+//    public void setCategory(Category category) {
+//        this.category = category;
+//    }
 }
